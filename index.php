@@ -47,15 +47,15 @@ $hotels = [
   <title>PHP Hotel</title>
 </head>
 <body>
-  <div class="main-container">
+  <div class="container">
     <form action="index.php" method="GET">
       <div class="filter">
-        <input type="checkbox" name="parking" id="parking">
+        <input type="checkbox" name="parking" id="parking" value="checked">
         <label for="parking">Has a parking lot</label>
       </div>
       <div class="filter">
         <select name="review" id="review">
-          <option value="">Choose a rating</option>
+          <option selected value="default">Choose a rating</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -63,13 +63,16 @@ $hotels = [
           <option value="5">5</option>
         </select>
       </div>
+
+      <button type="submit">Submit</button>
+      <button type="reset">Clear options</button>
     </form>
 
     <table>
       <thead>
         <tr>
           <th>Hotel Name</th>
-          <th>Parking Spots</th>
+          <th>Parking</th>
           <th>Customer Vote</th>
           <th>Distance to Center</th>
         <tr>
@@ -77,15 +80,15 @@ $hotels = [
 
       <tbody>
       <?php
-        foreach($hotels as $hotel) {    
+        foreach($hotels as $hotel) {
       ?>     
 
-        <tr>
-          <td><?php echo $hotel['name'] ?></td>
-          <td class="text-centered"><?php echo $hotel['parking'] ?></td>
-          <td class="text-centered"><?php echo $hotel['vote'] ?></td>
-          <td class="text-centered"><?php echo $hotel['distance_to_center'] ?> km</td>
-        <tr>
+          <tr>
+            <td><?php echo $hotel['name'] ?></td>
+            <td class="text-centered text-white"><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></td>
+            <td class="text-centered text-white"><?php echo $hotel['vote'] ?></td>
+            <td class="text-centered text-white"><?php echo $hotel['distance_to_center'] ?> km</td>
+          <tr>
 
       <?php
         }
@@ -94,5 +97,43 @@ $hotels = [
       </tbody>
     </table>
   </div>
+
+  <div class="container">
+    <div>Results</div>
+    <table>
+      <thead>
+          <tr>
+            <th>Hotel Name</th>
+            <th>Parking</th>
+            <th>Customer Vote</th>
+            <th>Distance to Center</th>
+          <tr>
+      </thead>
+
+      <tbody>
+      <?php
+        foreach($hotels as $hotel) {  
+          if(!$_GET ||
+            $_GET['parking'] == 'default' ||
+            $_GET['review'] == 'default') {
+      ?>
+
+        <tr>
+          <td><?php echo $hotel['name'] ?></td>
+          <td class="text-centered text-white"><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></td>
+          <td class="text-centered text-white"><?php echo $hotel['vote'] ?></td>
+          <td class="text-centered text-white"><?php echo $hotel['distance_to_center'] ?> km</td>
+        <tr>
+
+      <?php
+          }
+        }
+      ?>
+      
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
+
+<!-- oklch(45.59% 0.131 255.18) -->
