@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 2rem 2rem;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+table {
+  background-color: oklch(70% 0.113 76.24);
+}
+
+th {
+  background-color: oklch(70% 0.109 207.53);
+}
+
+td {
+  background-color: oklch(70% 0.101 165.18);
+}
+
+.text-centered {
+  text-align: center;
+  color: white;
+}
