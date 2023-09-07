@@ -47,33 +47,52 @@ $hotels = [
   <title>PHP Hotel</title>
 </head>
 <body>
-  <table>
-    <thead>
-      <tr>
-        <th>Hotel Name</th>
-        <th>Parking Lots</th>
-        <th>Customer Vote</th>
-        <th>Distance to Center</th>
-      <tr>
-    </thead>
+  <div class="main-container">
+    <form action="index.php" method="GET">
+      <div class="filter">
+        <input type="checkbox" name="parking" id="parking">
+        <label for="parking">Has a parking lot</label>
+      </div>
+      <div class="filter">
+        <select name="review" id="review">
+          <option value="">Choose a rating</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </form>
 
-    <tbody>
-    <?php
-      foreach($hotels as $hotel) {    
-    ?>     
+    <table>
+      <thead>
+        <tr>
+          <th>Hotel Name</th>
+          <th>Parking Spots</th>
+          <th>Customer Vote</th>
+          <th>Distance to Center</th>
+        <tr>
+      </thead>
 
-      <tr>
-        <td><?php echo $hotel['name'] ?></td>
-        <td class="text-centered"><?php echo $hotel['parking'] ?></td>
-        <td class="text-centered"><?php echo $hotel['vote'] ?></td>
-        <td class="text-centered"><?php echo $hotel['distance_to_center'] ?> km</td>
-      <tr>
+      <tbody>
+      <?php
+        foreach($hotels as $hotel) {    
+      ?>     
 
-    <?php
-      }
-    ?>
-    
-    </tbody>
-  </table>
+        <tr>
+          <td><?php echo $hotel['name'] ?></td>
+          <td class="text-centered"><?php echo $hotel['parking'] ?></td>
+          <td class="text-centered"><?php echo $hotel['vote'] ?></td>
+          <td class="text-centered"><?php echo $hotel['distance_to_center'] ?> km</td>
+        <tr>
+
+      <?php
+        }
+      ?>
+      
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
