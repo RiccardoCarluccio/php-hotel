@@ -47,6 +47,24 @@ $hotels = [
   <title>PHP Hotel</title>
 </head>
 <body>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Parking</th>
+      <th>Vote</th>
+      <th>Distance to Center</th>
+    <tr>
+  </thead>
   
+  <?php
+    foreach($hotels as $hotel) {
+      
+      <tbody>
+        <tr>
+          <td></td>
+        <tr>
+      </tbody>
+    }
+  ?>
 </body>
 </html>
